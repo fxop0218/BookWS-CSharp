@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\BookWeb.bundle.scp.css"
     },
     {
+      "Id": "D:\\Code\\C#\\BookWeb\\BookWeb\\wwwroot\\css\\bootswatchTheme.css",
+      "PackagePath": "staticwebassets\\css\\bootswatchTheme.css"
+    },
+    {
       "Id": "D:\\Code\\C#\\BookWeb\\BookWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
