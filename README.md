@@ -1,4 +1,12 @@
-﻿# To Migrate model to database in nuget Comand line
+# Book WebService with C#
+
+The bootsrrap theme has been deleted from the project, the theem used its: 
+
+This project consists of a book manager, which allows you to create it with C#, JS, CSS and MySQL.
+
+Important things to keep in mind:
+
+## To Migrate model to database in nuget Comand line
 ### Microsoft.EntityFrameworkCore.Tools needed
 Create migration files
 ```
