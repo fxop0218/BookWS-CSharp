@@ -8,9 +8,11 @@
         </div>
         <div class="mb-3">
             <input asp-for="Name" class="form-control" placeholder="Name"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div>
             <input asp-for="DisplayOrder" class="form-control" placeholder="DisplayOrder"/>
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
         </div>
         <br />
         <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
