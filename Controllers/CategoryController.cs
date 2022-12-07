@@ -23,12 +23,48 @@ namespace BookWeb.Controllers
         {
             return View();
         }
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var categoryFromDb = _db.Categories.Find(id);
+            //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category category)
+        {
+            if (category.Name == category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "The display cannot be the same"); // Put custom error if don't want to put into a label
+            }
+            if (ModelState.IsValid) // Check if the send values are valid
+            {
+                _db.Categories.Update(category);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(category);
+        }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
         {
+            if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "The display cannot be the same"); // Put custom error if don't want to put into a label
+            }
             if (ModelState.IsValid) // Check if the send values are valid
             {
                 _db.Categories.Add(obj);
@@ -37,5 +73,7 @@ namespace BookWeb.Controllers
             }
             return View(obj);
         }
+
+        
     }
 }
