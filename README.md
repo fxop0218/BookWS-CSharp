@@ -24,3 +24,8 @@ appsettings.json connection:
     "DefaultConnection": "Server=DESKTOP-xxxxxxx\\SQLEXPRESS;Database=xxxxx;Trusted_Connection=True;encrypt=false"
   }
  ```
+ 
+ ## 📩 How to reach me: 
+
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)](https://www.kaggle.com/francescoliveras)
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francesc-oliveras-perez)
