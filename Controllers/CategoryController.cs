@@ -39,6 +39,38 @@ namespace BookWeb.Controllers
             return View(categoryFromDb);
         }
 
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var categoryFromDb = _db.Categories.Find(id);
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Category category)
+        {
+            if (category.Name == category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "The display cannot be the same"); // Put custom error if don't want to put into a label
+            }
+            if (ModelState.IsValid) // Check if the send values are valid
+            {
+                _db.Categories.Remove(category);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(category);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Category category)
